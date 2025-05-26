@@ -1,0 +1,13 @@
+uvicorn
+fastapi
+joblib
+numpy
+pandas
+torch==2.3.1
+torchvision==0.18.1
+streamlit 
+transformers
+tensorflow
+ipykernel
+scikit-learn
+seaborn
