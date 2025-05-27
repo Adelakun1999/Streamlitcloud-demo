@@ -22,7 +22,7 @@ loaded_model = torchvision.models.efficientnet_b0(weights=weight)
 
 loaded_model.classifier = nn.Linear(in_features=1280, out_features=len(image_class_names))
 
-loaded_model.load_state_dict(torch.load('vision.pth',  map_location=torch.device('cpu')))
+loaded_model.load_state_dict(torch.load('Singleeye.pth',  map_location=torch.device('cpu')))
 loaded_model.eval()
 transforms = weight.transforms()
 
