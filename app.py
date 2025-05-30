@@ -5,6 +5,9 @@ from torchvision import transforms
 import torch
 import torchvision
 from torch import nn 
+import numpy as np 
+
+
 
 class_names = ['cat' , 'dog']
 
@@ -14,7 +17,7 @@ weight = torchvision.models.EfficientNet_B0_Weights.DEFAULT
 
 loaded_model = torchvision.models.efficientnet_b0(weights = weight)
 
-transforms = weight.transforms()
+transform = weight.transforms()
 
 
 loaded_model.classifier = nn.Linear(in_features=1280 ,  out_features = len(class_names))
@@ -27,10 +30,10 @@ loaded_model.eval()
 uploaded_file = st.file_uploader('choose an image' , type=['jpg','jpeg','png'])
 
 if uploaded_file is not None :
-    image =Image.open(uploaded_file)
-    st.image(image, caption='Uploaded Image', use_column_width=True)
+    image =Image.open(uploaded_file).convert('RGB')
+    st.image(image, caption='Uploaded Image', use_container_width=True)
 
-    image = transforms(image).unsqueeze(dim=0)
+    image = transform(image).unsqueeze(dim=0)
 
     st.write('The shape of the image is    :  ' ,  image.shape)
 
