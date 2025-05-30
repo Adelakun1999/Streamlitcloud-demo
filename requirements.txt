@@ -3,7 +3,7 @@ fastapi
 joblib
 numpy==1.26.4
 pandas
-torch==2.3.1
+torch
 torchvision==0.18.1
 streamlit 
 transformers
